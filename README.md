@@ -1,4 +1,8 @@
-# ARCoreAgora
+THIS IS OUR MOTIVE :D 
 
-Find the step-by-step tutorial here: 
-https://medium.com/@shaocheng.yang1995/how-to-build-an-augmented-reality-remote-assistance-app-in-android-ffde6406dff5
+
+1)LOGIN PAGE (presenter,audience)
+2)dynamic 3d model (option to upload custom 3d model)
+3)unique id/channel name generation..so that different channels doesnot get interrupted--assingned to shyam
+4)list of 3d models
+5)video if possible gesture control (zoom in zoom out(easy scalability))
