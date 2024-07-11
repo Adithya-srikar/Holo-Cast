@@ -24,8 +24,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".splashscreen"
+        <activity
+            android:name=".Upload"
+            android:exported="false" />
+        <activity
+            android:name=".rendering.upload"
+            android:exported="false" />
+        <activity
+            android:name=".splashscreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,8 +44,6 @@
                 android:value="" />
         </activity>
         <activity android:name=".homepage">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -48,25 +52,18 @@
             android:name=".AgoraARAudienceActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".AgoraARStreamerActivity" />
-        <activity android:name=".ChannelActivity">
-
-        </activity>
+        <activity android:name=".ChannelActivity" />
         <activity android:name=".consult_sub">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity android:name=".otpgenerate">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".nconsult_sub">
-
+        <activity android:name=".nconsult_sub">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
