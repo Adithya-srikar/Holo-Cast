@@ -482,7 +482,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
 
         // Prepare the other rendering objects.
         try {
-            mVirtualObject.createOnGlThread(/*context=*/this, "heart.obj", "heart_texture.png");
+            mVirtualObject.createOnGlThread(/*context=*/this, "model.sfb", "heart_texture.png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,
