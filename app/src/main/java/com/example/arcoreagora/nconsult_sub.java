@@ -55,7 +55,7 @@ public class nconsult_sub extends AppCompatActivity {
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(nconsult_sub.this,ChannelActivity.class);
+                Intent intent=new Intent(nconsult_sub.this,Upload.class);
                 startActivity(intent);
             }
         });

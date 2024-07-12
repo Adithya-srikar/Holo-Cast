@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Upload">
+
+<!--    <include layout="@layout/toolbar_app" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload your Sceneform Model (.SFB file only)"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"
+            android:gravity="bottom" />
+
+        <Button
+            android:id="@+id/upload_select_model"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/grayButton"
+            android:text="Select Model"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload Model Thumbnail"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"
+            android:gravity="bottom" />
+
+        <Button
+            android:id="@+id/upload_select_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/grayButton"
+            android:text="Select Thumbnail" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"/>
+
+        <Button
+            android:id="@+id/upload_model"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/grayButton"
+            android:text="Upload" />
+
+    </LinearLayout>
+
+</LinearLayout>
