@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signupActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="190dp"
+            android:layout_height="183dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo1" />
+
+        <RadioGroup
+            android:id="@+id/roleRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/teacherRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Teacher" />
+
+            <RadioButton
+                android:id="@+id/studentRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:text="Student" />
+
+            <RadioButton
+                android:id="@+id/BussinessRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Bussiness" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/logoImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Name"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/roleRadioGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Email"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/emailEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Username"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/usernameEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Password"
+            android:padding="10dp"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/reEnterPasswordEditText"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/passwordEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Re-enter Password"
+            android:padding="10dp"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reEnterPasswordEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:padding="16dp"
+            android:text="Sign Up"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:background="@drawable/custom_button" />
+
+        <TextView
+            android:id="@+id/signUpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signUpButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Already have an account? Sign in"
+            android:textColor="#0000FF" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

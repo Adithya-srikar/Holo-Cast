@@ -1,6 +1,8 @@
 package com.example.arcoreagora;
 
 
+import static android.view.Gravity.apply;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -86,6 +88,7 @@ public class Upload extends AppCompatActivity {
                 writeFile(thumbnailUri);
                 Toast.makeText(currentContext, "Model uploaded successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(Upload.this,ChannelActivity.class);
+                intent.putExtra("model_name", modelName);
                 startActivity(intent);
                 finish();
             }
@@ -144,7 +147,7 @@ public class Upload extends AppCompatActivity {
         }
         String mimeType = getContentResolver().getType(uri);
         if (mimeType.contains("octet")) {
-            file = new File(modelDir,  modelName + ".sfb");
+            file = new File(modelDir,  modelName + ".obj");
         }
         else if (mimeType.contains("jpeg")) {
             file = new File(thumbnailDir,  modelName + ".jpeg");

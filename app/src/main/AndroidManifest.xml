@@ -25,11 +25,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Upload"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".rendering.upload"
+            android:name=".signupActivity"
             android:exported="false" />
+        <activity
+            android:name=".Upload"
+            android:exp
         <activity
             android:name=".splashscreen"
             android:exported="true">

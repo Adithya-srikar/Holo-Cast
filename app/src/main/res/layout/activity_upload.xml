@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".Upload">
 
-<!--    <include layout="@layout/toolbar_app" />-->
+
 
     <LinearLayout
         android:layout_width="match_parent"

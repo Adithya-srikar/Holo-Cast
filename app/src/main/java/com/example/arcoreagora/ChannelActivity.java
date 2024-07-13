@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ChannelActivity extends AppCompatActivity {
     private EditText channelEditText;
+    TextView model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,7 @@ public class ChannelActivity extends AppCompatActivity {
      * when user clicks the join channel button
      * @param view
      */
-    public void onJoinButtonClicked(View view) {
+    public void onJoinButtonClicked(View view){
         String channelName = channelEditText.getText().toString();
 
         if (channelName == null) {
@@ -31,6 +33,8 @@ public class ChannelActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btn_join_audience:
                     Intent intent = new Intent(this, AgoraARAudienceActivity.class);
+                    String modelName = intent.getStringExtra("model_name");
+                    intent.putExtra("model_name",modelName);
                     intent.putExtra("ChannelName", channelName);
                     startActivity(intent);
                     break;
