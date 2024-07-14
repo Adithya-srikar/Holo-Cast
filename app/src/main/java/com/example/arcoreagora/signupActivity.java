@@ -1,75 +1,65 @@
-package com.example.arcoreagora;
+
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class signupActivity extends AppCompatActivity {
-    private EditText nameEditText, emailEditText, usernameEditText, passwordEditText, reEnterPasswordEditText;
-    private RadioGroup roleRadioGroup;
-    private RadioButton teacherRadioButton, studentRadioButton;
-    private Button signUpButton;
-    private FirebaseAuth mAuth;
+
+public class SignupActivity extends AppCompatActivity {
+
+    EditText signupName, signupUsername, signupEmail, signupPassword;
+    TextView loginRedirectText;
+    Button signupButton;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        nameEditText = findViewById(R.id.nameEditText);
-        emailEditText = findViewById(R.id.emailEditText);
-        usernameEditText = findViewById(R.id.usernameEditText);
-        passwordEditText = findViewById(R.id.passwordEditText);
-        reEnterPasswordEditText = findViewById(R.id.reEnterPasswordEditText);
-        roleRadioGroup = findViewById(R.id.roleRadioGroup);
-        teacherRadioButton = findViewById(R.id.teacherRadioButton);
-        studentRadioButton = findViewById(R.id.studentRadioButton);
-        signUpButton = findViewById(R.id.signUpButton);
+        signupName = findViewById(R.id.signup_name);
+        signupEmail = findViewById(R.id.signup_email);
+        signupUsername = findViewById(R.id.signup_username);
+        signupPassword = findViewById(R.id.signup_password);
+        loginRedirectText = findViewById(R.id.loginRedirectText);
+        signupButton = findViewById(R.id.signup_button);
 
-        mAuth = FirebaseAuth.getInstance();
-
-        signUpButton.setOnClickListener(new View.OnClickListener() {
+        signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String name = nameEditText.getText().toString();
-                String email = emailEditText.getText().toString();
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-                String reEnterPassword = reEnterPasswordEditText.getText().toString();
-                int selectedRoleId = roleRadioGroup.getCheckedRadioButtonId();
-                String role = (selectedRoleId == R.id.teacherRadioButton) ? "Teacher" : "Student";
+            public void onClick(View view) {
 
-                if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || reEnterPassword.isEmpty() || selectedRoleId == -1) {
-                    Toast.makeText(signupActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                } else if (!password.equals(reEnterPassword)) {
-                    Toast.makeText(signupActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else {
-                    mAuth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(signupActivity.this, task -> {
-                                if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    if (user != null) {
-                                        // Sign up success, update UI with the signed-in user's information
-                                        Toast.makeText(signupActivity.this, "Sign Up successful", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(signupActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(signupActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                }
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("users");
+
+                String name = signupName.getText().toString();
+                String email = signupEmail.getText().toString();
+                String username = signupUsername.getText().toString();
+                String password = signupPassword.getText().toString();
+
+                HelperClass helperClass = new HelperClass(name, email, username, password);
+                reference.child(username).setValue(helperClass);
+
+                Toast.makeText(SignupActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        loginRedirectText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
