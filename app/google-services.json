@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1019230589076",
+    "project_id": "hacknnovate",
+    "storage_bucket": "hacknnovate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019230589076:android:53fefb0504a235df532481",
+        "android_client_info": {
+          "package_name": "com.example.arcoreagora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTaY_suiGU6ML3ztk95FbDf9BiqOcspHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
