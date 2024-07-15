@@ -33,8 +33,6 @@ public class ChannelActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btn_join_audience:
                     Intent intent = new Intent(this, AgoraARAudienceActivity.class);
-                    String modelName = intent.getStringExtra("model_name");
-                    intent.putExtra("model_name",modelName);
                     intent.putExtra("ChannelName", channelName);
                     startActivity(intent);
                     break;

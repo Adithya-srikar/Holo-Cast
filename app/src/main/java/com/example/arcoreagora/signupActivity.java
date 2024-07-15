@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,7 @@ public class signupActivity extends AppCompatActivity {
     private RadioButton teacherRadioButton, studentRadioButton;
     private Button signUpButton;
     private FirebaseAuth mAuth;
+    private TextView signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,14 @@ public class signupActivity extends AppCompatActivity {
         teacherRadioButton = findViewById(R.id.teacherRadioButton);
         studentRadioButton = findViewById(R.id.studentRadioButton);
         signUpButton = findViewById(R.id.signUpButton);
+        signup = findViewById(R.id.signUpTextView);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(signupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
