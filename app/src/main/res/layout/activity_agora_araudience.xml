@@ -17,10 +17,13 @@
             android:layout_above="@id/icon_padding">
 
             <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/icon_agora_largest" />
+
+
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/icon_padding"

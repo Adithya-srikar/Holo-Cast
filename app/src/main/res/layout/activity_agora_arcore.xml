@@ -8,7 +8,7 @@
     <android.opengl.GLSurfaceView
         android:id="@+id/surfaceview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent" />
 
     <RelativeLayout
         android:id="@+id/remote_video_view_container"
@@ -29,6 +29,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/icon_agora_largest"/>
+
         </RelativeLayout>
 
     </RelativeLayout>
@@ -92,4 +93,20 @@
             android:src="@drawable/btn_unmute"
             android:scaleType="centerCrop"/>
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="126dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="569dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20dp" />
 </RelativeLayout>
