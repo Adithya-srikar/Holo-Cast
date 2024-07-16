@@ -1,11 +1,15 @@
 package com.example.arcoreagora;
 
+import static com.example.arcoreagora.Constants.MODELS_DIR;
+
 import android.Manifest;
 import android.app.Instrumentation;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.ColorSpace;
+import android.net.Uri;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -55,6 +59,7 @@ import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -491,8 +496,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
             TextView t1=findViewById(R.id.textView6);
             t1.setText(m);
 
-
-            mVirtualObject.createOnGlThread(/*context=*/this,"@raw/heart.obj","heart_texture.png");
+            mVirtualObject.createOnGlThread(/*context=*/this, "heart1.obj","heart_texture.png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,

@@ -39,7 +39,7 @@ public class teacher_main extends AppCompatActivity {
     private FloatingActionButton uploadButton;
     private Toolbar toolbar;
     private TextView emptyListTextView;
-    private String receivedModelName = null;
+//    private String receivedModelName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +50,6 @@ public class teacher_main extends AppCompatActivity {
         recyclerView = findViewById(R.id.gallery_recycler_view);
         uploadButton = findViewById(R.id.fab_upload);
         emptyListTextView = findViewById(R.id.empty_list_text);
-        Intent intent = getIntent();
-        if (intent != null) {
-            receivedModelName = intent.getStringExtra("model_name");
-        }
 
 
         uploadButton.setOnClickListener(new View.OnClickListener() {

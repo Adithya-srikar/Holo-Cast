@@ -1,14 +1,20 @@
 package com.example.arcoreagora.rendering;
 
+import static com.example.arcoreagora.Constants.MODELS_DIR;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.opengl.Matrix;
+import android.os.Environment;
 
+import com.example.arcoreagora.Constants;
 import com.example.arcoreagora.R;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -121,7 +127,10 @@ public class ObjectRenderer {
         ShaderUtil.checkGLError(TAG, "Texture loading");
 
         // Read the obj file.
-        InputStream objInputStream = context.getAssets().open(objAssetName);
+        String directoryPath = "/storage/emulated/0/ARCoreAgora/Models";
+        String filePath = directoryPath + "/" + objAssetName;
+        File file = new File(filePath);
+        InputStream objInputStream = new FileInputStream(file);
         Obj obj = ObjReader.read(objInputStream);
 
         // Prepare the Obj so that its structure is suitable for
