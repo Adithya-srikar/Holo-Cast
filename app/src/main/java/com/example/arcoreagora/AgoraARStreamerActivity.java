@@ -5,6 +5,7 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.ColorSpace;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -484,8 +486,13 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
         // Prepare the other rendering objects.
         try {
             Intent intent = new Intent(this, AgoraARStreamerActivity.class);
-            String m = intent.getStringExtra("model_name");
-            mVirtualObject.createOnGlThread(/*context=*/this, m, "heart_texture.png");
+            String m = intent.getStringExtra("Model");
+            //String t = intent.getStringExtra("Texture");
+            TextView t1=findViewById(R.id.textView6);
+            t1.setText(m);
+
+
+            mVirtualObject.createOnGlThread(/*context=*/this,"@raw/heart.obj","heart_texture.png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,

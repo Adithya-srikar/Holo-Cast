@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Upload Model Thumbnail"
+            android:text="Upload Texture"
             android:textSize="15sp"
             android:textStyle="bold"
             android:paddingBottom="5dp"
@@ -50,12 +50,27 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/grayButton"
-            android:text="Select Thumbnail" />
-
+            android:text="Select texture" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Model Name"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"
+            android:gravity="bottom" />
+        <EditText
+            android:id="@+id/modelname"
+            android:layout_width="match_parent"
+            android:hint="Model Name"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"/>
+            android:layout_weight="3"/>
 
         <Button
             android:id="@+id/upload_model"

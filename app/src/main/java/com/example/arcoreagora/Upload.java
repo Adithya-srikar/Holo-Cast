@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Environment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,7 @@ public class Upload extends AppCompatActivity {
     private Uri modelUri = null, thumbnailUri = null;
     private Context currentContext;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,6 @@ public class Upload extends AppCompatActivity {
         selectThumbnail = findViewById(R.id.upload_select_thumbnail);
         upload = findViewById(R.id.upload_model);
 
-        modelName = "" + Calendar.getInstance().getTimeInMillis();
         currentContext = this;
 
         setButtonListeners();
@@ -76,6 +77,9 @@ public class Upload extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText modelNameEditText = (EditText) findViewById(R.id.modelname);
+                modelName = modelNameEditText.getText().toString();
+
                 if (modelUri == null) {
                     Toast.makeText(currentContext, "No model selected!", Toast.LENGTH_SHORT).show();
                     return;
@@ -86,8 +90,10 @@ public class Upload extends AppCompatActivity {
                 }
                 writeFile(modelUri);
                 writeFile(thumbnailUri);
+                EditText editTextModelName = findViewById(R.id.modelname);
+                String modelName = editTextModelName.getText().toString();
                 Toast.makeText(currentContext, "Model uploaded successfully!", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Upload.this,ChannelActivity.class);
+                Intent intent=new Intent(Upload.this,teacher_main.class);
                 intent.putExtra("model_name", modelName);
                 startActivity(intent);
                 finish();
