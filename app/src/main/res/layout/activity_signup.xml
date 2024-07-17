@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/pagebkg"
-    tools:context=".SignUpActivity">
+    tools:context=".signupActivity">
 
     <Space
         android:layout_width="match_parent"
@@ -89,6 +89,15 @@
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/signup_role"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/lavender_border"
+                android:padding="8dp"
+                android:spinnerMode="dropdown" />
 
             <Button
                 android:id="@+id/signup_button"
