@@ -13,6 +13,7 @@
     <string name="Language">Language</string>
     <string name="Experience">Experience</string>
     <string name="Expert">Expert_type</string>
+    <string name="join_new_class">Join New Class</string>
     <string-array name="roles_array">
         <item>Teacher</item>
         <item>Student</item>

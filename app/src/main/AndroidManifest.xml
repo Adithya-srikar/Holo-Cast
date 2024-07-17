@@ -28,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".student_main"
+            android:exported="false" />
+        <activity
             android:name=".teacher_main"
             android:exported="false" />
         <activity
