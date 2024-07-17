@@ -53,6 +53,7 @@ public class PeerRenderer {
     });
 
     public PeerRenderer() {
+
     }
 
     /**
@@ -89,11 +90,11 @@ public class PeerRenderer {
         ShaderUtil.checkGLError(TAG, "Program creation");
 
         mModelViewProjectionUniform = GLES20.glGetUniformLocation(mProgram, "u_ModelViewProjection");
-        //mTextureLocation = GLES20.glGetUniformLocation(mProgram, "rgb_tex");
-        //GLES20.glUniform1i(shader.glShader.getUniformLocation("rgb_tex"), 0);
-
-        //mModelViewUniform = GLES20.glGetUniformLocation(mProgram, "u_ModelView");
-        //mModelViewProjectionUniform = GLES20.glGetUniformLocation(mProgram, "u_ModelViewProjection");
+//        mTextureLocation = GLES20.glGetUniformLocation(mProgram, "rgb_tex");
+//        GLES20.glUniform1i(shader.glShader.getUniformLocation("rgb_tex"), 0);
+//
+//        mModelViewUniform = GLES20.glGetUniformLocation(mProgram, "u_ModelView");
+//        mModelViewProjectionUniform = GLES20.glGetUniformLocation(mProgram, "u_ModelViewProjection");
 
         mPositionAttribute = GLES20.glGetAttribLocation(mProgram, "a_Position");
         mTexCoordAttribute = GLES20.glGetAttribLocation(mProgram, "a_TexCoord");

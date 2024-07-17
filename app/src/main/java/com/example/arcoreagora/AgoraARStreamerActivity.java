@@ -5,6 +5,7 @@ import static com.example.arcoreagora.Constants.MODELS_DIR;
 import android.Manifest;
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -491,12 +492,17 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
         // Prepare the other rendering objects.
         try {
             Intent intent = new Intent(this, AgoraARStreamerActivity.class);
-            String m = intent.getStringExtra("Model");
             //String t = intent.getStringExtra("Texture");
-            TextView t1=findViewById(R.id.textView6);
-            t1.setText(m);
+//            String m = intent.getStringExtra("mn");
 
-            mVirtualObject.createOnGlThread(/*context=*/this, "heart1.obj","heart_texture.png");
+            SharedPreferences sharedPref = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            String modelLocation = sharedPref.getString("model_location", "");
+            String textureLocation = sharedPref.getString("texture_location", "");
+            String modelName = sharedPref.getString("model_name", "");
+            TextView t1=findViewById(R.id.textView6);
+            t1.setText(modelName);
+
+            mVirtualObject.createOnGlThread(/*context=*/this,modelName+".obj" ,"heart_texture.png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,

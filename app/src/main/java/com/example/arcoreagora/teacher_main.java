@@ -3,6 +3,7 @@ package com.example.arcoreagora;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
@@ -39,6 +40,7 @@ public class teacher_main extends AppCompatActivity {
     private FloatingActionButton uploadButton;
     private Toolbar toolbar;
     private TextView emptyListTextView;
+    private String filename;
 //    private String receivedModelName = null;
 
     @Override
@@ -92,17 +94,20 @@ public class teacher_main extends AppCompatActivity {
         data.clear();
         String thumbnailsPath = Environment.getExternalStorageDirectory() + Constants.THUMBNAILS_DIR;
         File thumbnailsDirectory = new File(thumbnailsPath);
+
+
         if (thumbnailsDirectory.exists()) {
             File[] files = thumbnailsDirectory.listFiles();
             for (int i = 0; i < files.length; i++)
             {
-                String fileName = files[i].getName().substring(0, files[i].getName().lastIndexOf('.'));
-                File modelFile = new File(Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + fileName + ".obj");
+                filename = files[i].getName().substring(0, files[i].getName().lastIndexOf('.'));
+                File modelFile = new File(Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + filename + ".obj");
                 if (modelFile.exists()) {
                     GalleryListItem listItem = new GalleryListItem();
-                    listItem.modelLocation = Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + fileName + ".obj";
-                    listItem.textureLocation = Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + fileName + ".png";
+                    listItem.modelLocation = Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + filename + ".obj";
+                    listItem.textureLocation = Environment.getExternalStorageDirectory() + Constants.MODELS_DIR + "/" + filename + ".png";
                     listItem.thumbnailUri = Uri.fromFile(files[i]);
+                    listItem.model_name=  filename;
 
                     data.add(listItem);
                 }

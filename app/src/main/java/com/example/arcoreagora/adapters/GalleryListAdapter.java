@@ -3,7 +3,10 @@ package com.example.arcoreagora.adapters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;import android.view.LayoutInflater;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.SharedPreferences;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,7 +20,7 @@ import com.example.arcoreagora.models.GalleryListItem;
 
 import java.util.List;
 
-public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.ListItemViewHolder> {
+public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.ListItemViewHolder>  {
     private List<GalleryListItem> data;
     private Context context;
 
@@ -39,11 +42,8 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
         final GalleryListItem currentData = data.get(position);
         holder.imageView.setImageURI(null);
         holder.imageView.setImageURI(currentData.thumbnailUri);
-        if (currentData.name != null) {
-            holder.nameTextView.setText(currentData.name);
-        } else {
-            holder.nameTextView.setText("Model");
-        }
+        holder.nameTextView.setText(currentData.model_name);
+
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +51,13 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
                 Intent intent = new Intent(context, ChannelActivity.class);
                 intent.putExtra("model_location", currentData.modelLocation);
                 intent.putExtra("texture_location", currentData.textureLocation);
+                intent.putExtra("model_name", currentData.model_name);
+                SharedPreferences sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("model_location", currentData.modelLocation);
+                editor.putString("texture_location", currentData.textureLocation);
+                editor.putString("model_name", currentData.model_name);
+                editor.apply();
                 context.startActivity(intent);
             }
         });
