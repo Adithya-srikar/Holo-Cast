@@ -1,4 +1,4 @@
-
+package com.example.arcoreagora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class SignupActivity extends AppCompatActivity {
+public class signupActivity extends AppCompatActivity {
 
     EditText signupName, signupUsername, signupEmail, signupPassword;
     TextView loginRedirectText;
@@ -49,8 +49,8 @@ public class SignupActivity extends AppCompatActivity {
                 HelperClass helperClass = new HelperClass(name, email, username, password);
                 reference.child(username).setValue(helperClass);
 
-                Toast.makeText(SignupActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                Toast.makeText(signupActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(signupActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class SignupActivity extends AppCompatActivity {
         loginRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                Intent intent = new Intent(signupActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
