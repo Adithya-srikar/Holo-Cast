@@ -217,6 +217,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
             }
         });
 
+
         mSurfaceView.setPreserveEGLContextOnPause(true);
         mSurfaceView.setEGLContextClientVersion(2);
         mSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0); // Alpha used for plane blending.
