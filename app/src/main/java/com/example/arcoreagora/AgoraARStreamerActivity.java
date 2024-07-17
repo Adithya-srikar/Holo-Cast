@@ -1,16 +1,10 @@
 package com.example.arcoreagora;
 
-import static com.example.arcoreagora.Constants.MODELS_DIR;
-
 import android.Manifest;
 import android.app.Instrumentation;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.ColorSpace;
-import android.net.Uri;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -60,7 +54,6 @@ import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +98,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
     private final ArrayList<Anchor> anchors = new ArrayList<>();
     private final float[] mAnchorMatrix = new float[16];
     private float mScaleFactor = 0.1f;
-    private String channelName = "abc";
+    private String channelName = "";
     private boolean installRequested;
     private boolean mHidePoint;
     private boolean mHidePlane;
@@ -260,7 +253,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
 
                 mSession = new Session(/* context= */ this);
             } catch (UnavailableArcoreNotInstalledException
-                    | UnavailableUserDeclinedInstallationException e) {
+                     | UnavailableUserDeclinedInstallationException e) {
                 message = "Please install ARCore";
                 exception = e;
             } catch (UnavailableApkTooOldException e) {
@@ -491,24 +484,16 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
 
         // Prepare the other rendering objects.
         try {
-            Intent intent = new Intent(this, AgoraARStreamerActivity.class);
-            //String t = intent.getStringExtra("Texture");
-//            String m = intent.getStringExtra("mn");
-
             SharedPreferences sharedPref = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-            String modelLocation = sharedPref.getString("model_location", "");
-            String textureLocation = sharedPref.getString("texture_location", "");
             String modelName = sharedPref.getString("model_name", "");
-            TextView t1=findViewById(R.id.textView6);
-            t1.setText(modelName);
 
-            mVirtualObject.createOnGlThread(/*context=*/this,modelName+".obj" ,"heart_texture.png");
+            mVirtualObject.createOnGlThread(/*context=*/this,modelName+".obj" ,modelName+".png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,
                     "andy_shadow.obj", "andy_shadow.png");
             mVirtualObjectShadow.setBlendMode(ObjectRenderer.BlendMode.Shadow);
-            mVirtualObjectShadow.setMaterialProperties(1.0f, 0.0f, 0.0f, 1.0f);
+            mVirtualObjectShadow.setMaterialProperties(1.0f, 1.0f, 1.0f, 1.0f);
         } catch (IOException e) {
             Log.e(TAG, "Failed to read obj file");
         }
