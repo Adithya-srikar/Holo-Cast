@@ -57,7 +57,7 @@ public class signupActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Default to "Viewer" if nothing selected
-                selectedRole = "Viewer";
+                selectedRole = null;
             }
         });
         signupButton.setOnClickListener(new View.OnClickListener() {

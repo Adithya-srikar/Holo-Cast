@@ -1,6 +1,7 @@
 package com.example.arcoreagora;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = loginUsername.getText().toString().trim();
                 String password = loginPassword.getText().toString().trim();
+                SharedPreferences prefs = getSharedPreferences("user_data", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("username", username);editor.apply();
 
                 if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
                     loginUser(username, password);
@@ -76,10 +80,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (user != null && user.username.equals(username) && user.password.equals(password)) {
                         Intent intent;
+                        userFound = true;
                         if (user.role.equals("Teacher")) {
                             intent = new Intent(LoginActivity.this, teacher_main.class);
                         } else {
-                            intent = new Intent(LoginActivity.this, ChannelActivity.class);
+                            intent = new Intent(LoginActivity.this, student_main.class);
                         }
                         startActivity(intent);
                         finish();

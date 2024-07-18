@@ -14,52 +14,66 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10"
+        android:paddingTop="20dp"
         android:layout_margin="5dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Upload your Sceneform Model (.SFB file only)"
-            android:textSize="15sp"
+            android:text="Upload your 3D Model (.obj file only)"
+            android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:paddingBottom="5dp"
-            android:gravity="bottom" />
+            android:textAlignment="center"
+            android:gravity="bottom"
+            />
 
         <Button
             android:id="@+id/upload_select_model"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/grayButton"
+            android:background="@color/lavander"
+            android:shadowRadius="10"
             android:text="Select Model"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingTop="10dp"
             android:text="Upload Texture"
-            android:textSize="15sp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
             android:textStyle="bold"
             android:paddingBottom="5dp"
-            android:gravity="bottom" />
+            android:gravity="bottom"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:id="@+id/upload_select_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/grayButton"
+            android:background="@color/lavander"
+            android:shadowRadius="10"
             android:text="Select texture" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Model Name"
-            android:textSize="15sp"
+            android:paddingTop="10dp"
+            android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:gravity="bottom"
             android:paddingBottom="5dp"
-            android:gravity="bottom" />
+             />
         <EditText
             android:id="@+id/modelname"
             android:layout_width="match_parent"
@@ -67,17 +81,18 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"/>
+
 
         <Button
             android:id="@+id/upload_model"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/grayButton"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/lavander"
+            android:layout_marginTop="100dp"
             android:text="Upload" />
 
     </LinearLayout>
