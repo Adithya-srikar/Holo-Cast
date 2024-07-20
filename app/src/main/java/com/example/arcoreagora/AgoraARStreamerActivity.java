@@ -2,6 +2,7 @@ package com.example.arcoreagora;
 
 import android.Manifest;
 import android.app.Instrumentation;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
@@ -20,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -96,7 +98,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
     private final ArrayList<Anchor> anchors = new ArrayList<>();
     private final float[] mAnchorMatrix = new float[16];
     private float mScaleFactor = 0.1f;
-    private String channelName = "abc";
+    private String channelName = "";
     private boolean installRequested;
     private boolean mHidePoint;
     private boolean mHidePlane;
@@ -215,6 +217,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
             }
         });
 
+
         mSurfaceView.setPreserveEGLContextOnPause(true);
         mSurfaceView.setEGLContextClientVersion(2);
         mSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0); // Alpha used for plane blending.
@@ -251,7 +254,7 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
 
                 mSession = new Session(/* context= */ this);
             } catch (UnavailableArcoreNotInstalledException
-                    | UnavailableUserDeclinedInstallationException e) {
+                     | UnavailableUserDeclinedInstallationException e) {
                 message = "Please install ARCore";
                 exception = e;
             } catch (UnavailableApkTooOldException e) {
@@ -482,13 +485,16 @@ public class AgoraARStreamerActivity extends AppCompatActivity implements GLSurf
 
         // Prepare the other rendering objects.
         try {
-            mVirtualObject.createOnGlThread(/*context=*/this, "heart.obj", "heart_texture.png");
+            SharedPreferences sharedPref = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            String modelName = sharedPref.getString("model_name", "");
+
+            mVirtualObject.createOnGlThread(/*context=*/this,modelName+".obj" ,modelName+".png");
             mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
 
             mVirtualObjectShadow.createOnGlThread(/*context=*/this,
                     "andy_shadow.obj", "andy_shadow.png");
             mVirtualObjectShadow.setBlendMode(ObjectRenderer.BlendMode.Shadow);
-            mVirtualObjectShadow.setMaterialProperties(1.0f, 0.0f, 0.0f, 1.0f);
+            mVirtualObjectShadow.setMaterialProperties(1.0f, 1.0f, 1.0f, 1.0f);
         } catch (IOException e) {
             Log.e(TAG, "Failed to read obj file");
         }

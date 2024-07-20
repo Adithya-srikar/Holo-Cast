@@ -1,14 +1,21 @@
 package com.example.arcoreagora.rendering;
 
+import static com.example.arcoreagora.Constants.MODELS_DIR;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.opengl.Matrix;
+import android.os.Environment;
 
+
+import com.example.arcoreagora.Constants;
 import com.example.arcoreagora.R;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -101,8 +108,15 @@ public class ObjectRenderer {
     public void createOnGlThread(Context context, String objAssetName,
                                  String diffuseTextureAssetName) throws IOException {
         // Read the texture.
-        Bitmap textureBitmap = BitmapFactory.decodeStream(
-                context.getAssets().open(diffuseTextureAssetName));
+        Bitmap textureBitmap;
+        String directoryPath = "/storage/emulated/0/ARCoreAgora/Thumbnails";
+        String filePath = directoryPath + "/" + diffuseTextureAssetName;
+        File textureFile = new File(filePath);
+        try (FileInputStream textureInputStream = new FileInputStream(textureFile)) {textureBitmap = BitmapFactory.decodeStream(textureInputStream);
+        }
+
+//        Bitmap textureBitmap = BitmapFactory.decodeStream(
+//                context.getAssets().open(diffuseTextureAssetName));
 
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glGenTextures(mTextures.length, mTextures, 0);
@@ -121,7 +135,10 @@ public class ObjectRenderer {
         ShaderUtil.checkGLError(TAG, "Texture loading");
 
         // Read the obj file.
-        InputStream objInputStream = context.getAssets().open(objAssetName);
+        String ModelPath_core = "/storage/emulated/0/ARCoreAgora/Models";
+        String ModelPath = ModelPath_core + "/" + objAssetName;
+        File file = new File(ModelPath);
+        InputStream objInputStream = new FileInputStream(file);
         Obj obj = ObjReader.read(objInputStream);
 
         // Prepare the Obj so that its structure is suitable for
@@ -319,7 +336,7 @@ public class ObjectRenderer {
             switch (mBlendMode) {
                 case Shadow:
                     // Multiplicative blending function for Shadow.
-                    GLES20.glBlendFunc(GLES20.GL_ZERO, GLES20.GL_ONE_MINUS_SRC_ALPHA);
+                       GLES20.glBlendFunc(GLES20.GL_ZERO, GLES20.GL_ONE_MINUS_SRC_ALPHA);
                     break;
                 case Grid:
                     // Grid, additive blending function.

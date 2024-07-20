@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+<!--    <color name="colorPrimary">#008577</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
 
     <color name="button_background">#aaffffff</color>
 
     <color name="localBackground">#827b92</color>
     <color name="remoteBackground">#484258</color>
+    <color name="colorPrimary">#008577</color>77
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="grayButton">#DFDFDF</color>
+    <color name="lavander">#8692f7</color>
+    <color name="black">#000000</color>
 </resources>

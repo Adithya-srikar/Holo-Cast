@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AR</string>
+    <string name="app_name">Holo Cast</string>
     <string name="private_broadcasting_app_id">15fddb73a64148729776841aeb72ce5a</string>
 
     <string name="ar_mode">AR mode</string>
@@ -13,4 +13,11 @@
     <string name="Language">Language</string>
     <string name="Experience">Experience</string>
     <string name="Expert">Expert_type</string>
+    <string name="join_new_class">Join New Class</string>
+    <string-array name="roles_array">
+        <item>Teacher</item>
+        <item>Student</item>
+        <item>Business</item>
+    </string-array>
 </resources>
+

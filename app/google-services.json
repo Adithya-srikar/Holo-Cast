@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "166178593980",
+    "project_id": "arcoreagora-6f32c",
+    "storage_bucket": "arcoreagora-6f32c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166178593980:android:63dd4d7b34b99f326104b9",
+        "android_client_info": {
+          "package_name": "com.example.arcoreagora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBArcVdcvqANR8Y9DQmzOHs_B-UkMspiZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
