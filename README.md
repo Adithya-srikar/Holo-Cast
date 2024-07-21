@@ -74,9 +74,8 @@ git clone https://github.com/shyam9493/-Weather-Data-Emailer-Web-Application.git
 ## Samples
 
 <div style="display: flex;">
-    <img src="4WTqXY.png" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
-    <img src="CrYQ0T.png" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
-    <img src="k2BLJ9.png" alt="Phone" style="width: 300px; height: 600px;">
+    <img src="sample_models/sample1.jpg" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
+    <img src="sample_models/sample2.jpg" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
 </div>
 
 ## Contributing
