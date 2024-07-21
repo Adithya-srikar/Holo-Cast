@@ -38,7 +38,7 @@ Before getting started, ensure you have the following prerequisites installed on
 - To check in your mobile just go to ARCore link mentioned above if it is available to install then your device is ready to work with our application
 ## Installation
 To run this project locally, follow these steps:
-- **Clone the repository:
+- Clone the repository:
 ```bash
 git clone https://github.com/shyam9493/-Weather-Data-Emailer-Web-Application.git](https://github.com/indigo1498/AR_Project.git
 ```
@@ -73,7 +73,11 @@ git clone https://github.com/shyam9493/-Weather-Data-Emailer-Web-Application.git
 
 ## Samples
 
-After Entering the email and location you would get a prompt saying that email sent to youremail@example.com
+<div style="display: flex;">
+    <img src="4WTqXY.png" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
+    <img src="CrYQ0T.png" alt="Phone" style="width: 300px; height: 600px; margin-right: 10px;">
+    <img src="k2BLJ9.png" alt="Phone" style="width: 300px; height: 600px;">
+</div>
 
 ## Contributing
 
