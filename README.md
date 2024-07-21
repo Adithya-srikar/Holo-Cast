@@ -1,10 +1,10 @@
 Here's a detailed README file for your GitHub project:
 
 
-# Weather-Data-Emailer 
+# IMPROVING DIGITAL EDUCATION WITH AUGMENTED REALITY
 
 ## Description
-This project is a simple web application built using HTML, CSS, and JavaScript and php. It allows users to send email which contains the wheather report of a particular location.
+This project is a android application which includes the intergration of 3D models into the video calling interface using ARCoreAgora API
 
 ## Table of Contents
 - [Overview](#Overview)
