@@ -25,13 +25,12 @@ Before you begin, ensure you have met the following requirements:
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/yourusername/ar-video-call-learning-enhancement.git
-sh```
 2.**Open the project in Android Studio**:
 
-- *Launch Android Studio.
-- *Click on File -> Open... and navigate to the cloned repository.
-- *Select the project and click OK.
-- **Set up ARCore:
+- Launch Android Studio.
+- Click on File -> Open... and navigate to the cloned repository.
+- Select the project and click OK.
+- Set up ARCore:
 
 - *Ensure ARCore SDK is added to your project dependencies.
 - *Follow ARCore setup instructions if necessary.
