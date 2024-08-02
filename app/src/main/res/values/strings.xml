@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Holo Cast</string>
-    <string name="private_broadcasting_app_id">15fddb73a64148729776841aeb72ce5a</string>
+    <string name="private_broadcasting_app_id">your_agora_api</string>
 
     <string name="ar_mode">AR mode</string>
     <string name="agora_mode">Agora mode</string>
