@@ -51,7 +51,8 @@ git clone https://github.com/shyam9493/-Weather-Data-Emailer-Web-Application.git
 - Run the application:
   * Connect your Android device or start an emulator.
   * Click on Run -> Run 'app' or press Shift+F10.
-
+- Note
+  * Update your agora api key in Strings.xml
 ## Usage
 - Launch the application: Open the app on your Android device.
 - Create or Join a Video Call: Start a new video call session or join an existing one.
