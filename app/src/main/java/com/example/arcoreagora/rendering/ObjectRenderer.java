@@ -109,7 +109,7 @@ public class ObjectRenderer {
                                  String diffuseTextureAssetName) throws IOException {
         // Read the texture.
         Bitmap textureBitmap;
-        String directoryPath = "/storage/emulated/0/ARCoreAgora/Thumbnails";
+        String directoryPath = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/" + APP_FOLDER_NAME + "/Thumbnails";
         String filePath = directoryPath + "/" + diffuseTextureAssetName;
         File textureFile = new File(filePath);
         try (FileInputStream textureInputStream = new FileInputStream(textureFile)) {textureBitmap = BitmapFactory.decodeStream(textureInputStream);
@@ -135,7 +135,7 @@ public class ObjectRenderer {
         ShaderUtil.checkGLError(TAG, "Texture loading");
 
         // Read the obj file.
-        String ModelPath_core = "/storage/emulated/0/ARCoreAgora/Models";
+        String ModelPath_core = Environment.getExternalStorageDirectory().getAbsolutePath()+ "/" + APP_FOLDER_NAME + "/Models";
         String ModelPath = ModelPath_core + "/" + objAssetName;
         File file = new File(ModelPath);
         InputStream objInputStream = new FileInputStream(file);
